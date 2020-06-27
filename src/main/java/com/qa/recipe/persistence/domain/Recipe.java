@@ -24,8 +24,53 @@ public class Recipe {
 	@NotNull
 	private String method;
 	
-//	@ManyToMany(targetEntity = Ingredient.class)
-//	private Ingredient ingredient;
+	@ManyToMany(targetEntity = Ingredient.class)
+	private Ingredient ingredient;
+	
+	public Recipe() {
+		
+	}
+
+	public Recipe(String name, String method) {
+		super();
+		this.name = name;
+		this.method = method;
+		//this.ingredient = ingredient;
+	}
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getMethod() {
+		return method;
+	}
+
+	public void setMethod(String method) {
+		this.method = method;
+	}
+
+	public Ingredient getIngredient() {
+		return ingredient;
+	}
+
+	public void setIngredient(Ingredient ingredient) {
+		this.ingredient = ingredient;
+	}
+
 	
 	
 	
