@@ -2,10 +2,7 @@ package com.qa.recipe.service;
 
 import java.util.List;
 
-import javax.persistence.EntityNotFoundException;
-import javax.swing.text.html.parser.Entity;
 
-import org.checkerframework.common.reflection.qual.GetMethod;
 import org.springframework.stereotype.Service;
 
 import com.qa.recipe.exceptions.RecipeNotFoundException;
