@@ -20,7 +20,7 @@ public class Recipe {
 	@Size(min = 0, max = 80)
 	private String name;
 	
-	@Column(name = "recipe_name", unique = true)
+	@Column(name = "recipe_method", unique = true)
 	@NotNull
 	private String method;
 	
