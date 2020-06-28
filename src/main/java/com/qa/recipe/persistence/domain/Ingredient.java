@@ -1,5 +1,7 @@
 package com.qa.recipe.persistence.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity
+@Entity(name = "ingredient")
 public class Ingredient {
 
 
@@ -22,6 +24,8 @@ public class Ingredient {
 	@Size(min = 0, max = 80)
 	private String name;
 	
+	@ManyToMany(mappedBy = "ingredient")
+	private List<Recipe> recipes;
 	
 	@ManyToOne(targetEntity = Ingredient.class)
 	private Nutrient nutrient;
