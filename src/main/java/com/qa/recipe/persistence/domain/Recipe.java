@@ -1,5 +1,7 @@
 package com.qa.recipe.persistence.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,8 +26,8 @@ public class Recipe {
 	@NotNull
 	private String method;
 	
-	@ManyToMany(targetEntity = Ingredient.class)
-	private Ingredient ingredient;
+	@ManyToMany()
+	private List<Ingredient> ingredient;
 	
 	public Recipe() {
 		
@@ -63,11 +65,11 @@ public class Recipe {
 		this.method = method;
 	}
 
-	public Ingredient getIngredient() {
+	public List<Ingredient> getIngredient() {
 		return ingredient;
 	}
 
-	public void setIngredient(Ingredient ingredient) {
+	public void setIngredient(List<Ingredient> ingredient) {
 		this.ingredient = ingredient;
 	}
 
