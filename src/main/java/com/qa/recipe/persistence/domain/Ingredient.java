@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -24,11 +23,21 @@ public class Ingredient {
 	@Size(min = 0, max = 80)
 	private String name;
 	
-	@ManyToMany(mappedBy = "ingredient")
+	@ManyToMany()
 	private List<Recipe> recipes;
 	
-	@ManyToOne(targetEntity = Ingredient.class)
-	private Nutrient nutrient;
+	@ManyToMany()
+	private List <Nutrient> nutrient;
+
+
+	public List<Nutrient> getNutrient() {
+		return nutrient;
+	}
+
+
+	public void setNutrient(List<Nutrient> nutrient) {
+		this.nutrient = nutrient;
+	}
 
 
 	public Ingredient() {

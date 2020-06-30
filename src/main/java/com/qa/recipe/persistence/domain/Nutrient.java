@@ -1,9 +1,12 @@
 package com.qa.recipe.persistence.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -18,7 +21,16 @@ public class Nutrient {
 	@NotNull
 	@Size(min = 0, max = 80)
 	private String name;
+	
+	@ManyToMany()
+	private List<Ingredient> ingredients;
 
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
 	public Nutrient(String name) {
 
 		this.name = name;
