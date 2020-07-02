@@ -17,35 +17,34 @@ import com.qa.recipe.service.IngredientService;
 @RestController
 @RequestMapping("/ingredient")
 public class IngredientController {
-	
-	
-private IngredientService service;
 
-public IngredientController(IngredientService service) {
-	super();
-	this.service = service;
-}
-@PostMapping("/create")
-public Ingredient creaat(@RequestBody Ingredient ingredient) {
-	return this.service.create(ingredient);
-}
+	private IngredientService service;
 
-@GetMapping("/read")
-public List<Ingredient> read(){
-	return this.service.read();
-	
-}
+	public IngredientController(IngredientService service) {
+		super();
+		this.service = service;
+	}
 
-@PutMapping("/update/{id}")
-public Ingredient update(@PathVariable Long id, @RequestBody Ingredient ingredient) {
-	return this.service.update(ingredient, id);
-	
-}
+	@PostMapping("/create")
+	public Ingredient creaat(@RequestBody Ingredient ingredient) {
+		return this.service.create(ingredient);
+	}
 
-@DeleteMapping("/delete{id}")
-public boolean delete(@PathVariable Long id) {
-	return this.service.delete(id);
-}
+	@GetMapping("/read")
+	public List<Ingredient> read() {
+		return this.service.read();
 
+	}
+
+	@PutMapping("/update/{id}")
+	public Ingredient update(@PathVariable Long id, @RequestBody Ingredient ingredient) {
+		return this.service.update(ingredient, id);
+
+	}
+
+	@DeleteMapping("/delete{id}")
+	public boolean delete(@PathVariable Long id) {
+		return this.service.delete(id);
+	}
 
 }
