@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -23,21 +25,24 @@ public class Ingredient {
 	@Size(min = 0, max = 80)
 	private String name;
 	
-	@ManyToMany()
+	@ManyToMany
+	@JoinTable(name = "recipe_ingredient", 
+	joinColumns = @JoinColumn(name = "ingredient_id"),
+	inverseJoinColumns = @JoinColumn(name = "recipe_id"))
 	private List<Recipe> recipes;
 	
-	@ManyToMany()
-	private List <Nutrient> nutrient;
-
-
-	public List<Nutrient> getNutrient() {
-		return nutrient;
-	}
-
-
-	public void setNutrient(List<Nutrient> nutrient) {
-		this.nutrient = nutrient;
-	}
+//	@ManyToMany()
+//	private List <Nutrient> nutrient;
+//
+//
+//	public List<Nutrient> getNutrient() {
+//		return nutrient;
+//	}
+//
+//
+//	public void setNutrient(List<Nutrient> nutrient) {
+//		this.nutrient = nutrient;
+//	}
 
 
 	public Ingredient() {
@@ -73,14 +78,6 @@ public class Ingredient {
 	}
 
 
-//	public Nutrient getNutrient() {
-//		return nutrient;
-//	}
-//
-//
-//	public void setNutrient(Nutrient nutrient) {
-//		this.nutrient = nutrient;
-//	}
 
 
 }

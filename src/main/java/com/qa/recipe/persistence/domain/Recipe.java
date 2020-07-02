@@ -26,8 +26,9 @@ public class Recipe {
 	@NotNull
 	private String method;
 	
-	@ManyToMany()
+	@ManyToMany(mappedBy = "recipes")
 	private List<Ingredient> ingredient;
+	
 	
 	public Recipe() {
 		
