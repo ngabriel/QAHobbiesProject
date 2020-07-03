@@ -15,6 +15,9 @@ public class RecipeDTO {
 
 	private List<IngredientDTO> ingredients = new ArrayList<>();
 	
+	public RecipeDTO() {
+
+	}
 
 	public RecipeDTO(String name, String method) {
 
@@ -56,7 +59,11 @@ public class RecipeDTO {
 		this.ingredients = ingredients;
 	}
 
-	
+
+	@Override
+	public String toString() {
+		return "RecipeDTO [id=" + id + ", name=" + name  + ", method=" + method  + "]";
+	}
 	
 	
 	
