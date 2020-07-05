@@ -1,0 +1,58 @@
+<html>
+<head>
+</head>
+
+<body>
+
+    
+    <div id="RecCreate">    
+        <H3> Create a Recipe</H3>
+    <P>Enter Recipe name</P>
+    <input id="recIn" type="text">
+    <P>Enter Recipe method</P>
+    <input id="methIn" type="text">
+    
+    <br/>
+    <button type="button" id="createRecButton">CREATE</button> 
+   
+   
+    <br/>
+
+    <div id = "createRecipe"></div>
+   
+   
+    <br/>
+</div>
+
+    <div id="IngCreate">
+    <H3> Add Ingredients</H3>
+    <P>Enter Ingredient name</P>
+    <input id="ingIn" type="text">
+    <button type="button" id="createIngButton">ADD</button> 
+    <pre id = "createIngredient"></pre>
+    <br/>
+</div>
+
+    <P>View All Recipes</P>
+    <button type="button" id="readRecButton">VIEW ALL RECIPES</button>
+    <pre id="readRecOutput"></pre>
+    
+    <P>View All Ingredients</P>
+
+    <button type="button" id="readIngButton">VIEW ALL RECIPES</button>
+    <pre id="readIngOutput"></pre>
+    
+
+
+
+
+    <pre id = "output"></pre>
+
+    <div id = "bigOutput"></div>
+    
+
+    <script src="recipe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
+</body>
+
+</html>
