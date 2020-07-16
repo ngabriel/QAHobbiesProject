@@ -11,5 +11,7 @@ import com.qa.recipe.persistence.domain.Recipe;
 @Repository
 public interface RecipeRepo extends JpaRepository<Recipe, Long> {
 	List<Recipe> findByIngredient(Ingredient ingredient);
-
+	Recipe findByName(String name);
+	boolean existsByName(String name);
+	void deleteByName(String name);
 }
