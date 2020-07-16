@@ -15,8 +15,9 @@ public class IngredientDTO {
 
 	}
 
-	public IngredientDTO(String name) {
+	public IngredientDTO(String name, Long id) {
 
+		this.id = id;
 		this.name = name;
 	}
 	

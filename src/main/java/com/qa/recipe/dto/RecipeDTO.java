@@ -19,8 +19,8 @@ public class RecipeDTO {
 
 	}
 
-	public RecipeDTO(String name, String method) {
-
+	public RecipeDTO(String name, String method, Long id) {
+		this.id = id;
 		this.name = name;
 		this.method = method;
 		//this.ingredient = ingredient;
