@@ -1,5 +1,6 @@
 package com.qa.recipe.persistence.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -24,15 +25,14 @@ public class Ingredient {
 	@Size(min = 0, max = 80)
 	private String name;
 
-	@ManyToMany
-	@JoinTable(name = "recipe_ingredient", joinColumns = @JoinColumn(name = "ingredient_id"), inverseJoinColumns = @JoinColumn(name = "recipe_id"))
-	private List<Recipe> recipes;
+	@ManyToMany(mappedBy = "ingredient")
+	private List<Recipe> recipes = new ArrayList<>();
 
 //	@ManyToMany()
 //	private List <Nutrient> nutrient;
 //
 //
-//	public List<Nutrient> getNutrient() {
+//	public List<Nutrient> getNutrient.() {
 //		return nutrient;
 //	}
 //
@@ -41,7 +41,9 @@ public class Ingredient {
 //		this.nutrient = nutrient;
 //	}
 
-	public Ingredient() {
+	public Ingredient(String name) {
+		super();
+		this.name = name;
 
 	}
 
@@ -50,6 +52,10 @@ public class Ingredient {
 		this.id = id;
 		this.name = name;
 		// this.nutrient = nutrient;
+	}
+
+	public Ingredient() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId() {
@@ -74,6 +80,11 @@ public class Ingredient {
 
 	public void setRecipes(List<Recipe> recipes) {
 		this.recipes = recipes;
+	}
+	
+	@Override
+	public String toString() {
+		return "Ingredient [id=" + id + ", name=" + name + ", recipes=" + recipes + "]";
 	}
 
 }
