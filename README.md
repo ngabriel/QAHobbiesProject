@@ -24,6 +24,7 @@ mvn package
 Deployment
 Run your Spring Application
 navigate to http://localhost:8083 on Google chrome
+Swagger Api Documentation http://localhost:8083/swagger-ui.html#/
 
 Built With
 Maven - Dependency Management
