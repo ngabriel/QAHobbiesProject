@@ -64,14 +64,15 @@ const BASE_URL = "http://localhost:8083";
     document.getElementById('readRecButton').addEventListener('click', function () {
         axios.get(BASE_URL + '/recipe/read')
             .then(res =>
-                document.getElementById('readRecOutput').innerText = res.data.map(recipe => recipe.name)
+                document.getElementById('readRecOutput').innerText = JSON.stringify(res.data)
+                //res.data.map(recipe => recipe.name)
             ).catch(err => console.error(err));
     });
 
     document.getElementById('readIngButton').addEventListener('click', function () {
         axios.get(BASE_URL + '/ingredient/read')
             .then(res =>{
-                alert("why!");
+                
                 document.getElementById('readIngOutput').innerText = JSON.stringify(res.data)
                       }
                                 ).catch(err => console.error(err));
