@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
+import com.qa.recipe.dto.IngredientDTO;
 import com.qa.recipe.dto.RecipeDTO;
+import com.qa.recipe.exceptions.IngredientNotFoundException;
 import com.qa.recipe.exceptions.RecipeNotFoundException;
+import com.qa.recipe.persistence.domain.Ingredient;
 import com.qa.recipe.persistence.domain.Recipe;
 import com.qa.recipe.persistence.repo.RecipeRepo;
 import org.modelmapper.ModelMapper;
@@ -69,10 +74,37 @@ public class RecipeService {
 		
 	}
 	
-	public boolean delete(Long id) {
-		this.repo.deleteById(id);
-		return this.repo.existsById(id);
+	@Transactional
+	public boolean delete(String name) {
+		if (!this.repo.existsByName(name)) {
+			throw new RecipeNotFoundException();
+			}
+		this.repo.deleteByName(name);
+		return this.repo.existsByName(name);
 	}
+
+	
+	public RecipeDTO updateMethod(String newMethod, String method, String name) {
+		Recipe toUpdate = this.repo.findByName(name);
+		toUpdate.setName(newMethod);
+		
+		Recipe updated = this.repo.save(toUpdate);
+
+		return this.mapToDto(updated);
+	}
+
+	public RecipeDTO updateName(String newName, String name) {
+		Recipe toUpdate = this.repo.findByName(name);
+		toUpdate.setName(newName);
+		
+		Recipe updated = this.repo.save(toUpdate);
+
+		return this.mapToDto(updated);
+	}
+
+
+
+
 	
 
 }

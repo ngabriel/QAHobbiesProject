@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.qa.recipe.dto.IngredientDTO;
 import com.qa.recipe.dto.RecipeDTO;
 import com.qa.recipe.persistence.domain.Recipe;
 import com.qa.recipe.service.RecipeService;
@@ -44,15 +46,20 @@ public class RecipeController {
 
 	}
 
-	@PutMapping("/update/{id}")
-	public ResponseEntity<RecipeDTO> update(@PathVariable Long id, @RequestBody Recipe recipe) {
-		return new ResponseEntity<RecipeDTO>(this.service.update(recipe, id), org.springframework.http.HttpStatus.ACCEPTED);
+	@PutMapping("/updateName/{name}")
+	public ResponseEntity<RecipeDTO> updateName(@PathVariable String name, @RequestParam("name") String newName) {
+		return new ResponseEntity<RecipeDTO>(this.service.updateName(newName, name),  org.springframework.http.HttpStatus.OK);
+
+	}
+	@PutMapping("/updateMethod/{method}")
+	public ResponseEntity<RecipeDTO> updateMethod(@PathVariable String method, @RequestParam("method") String newMethod, String name) {
+		return new ResponseEntity<RecipeDTO>(this.service.updateMethod(newMethod, method, name),  org.springframework.http.HttpStatus.OK);
 
 	}
 
-	@DeleteMapping("/delete{id}")
-	public boolean delete(@PathVariable Long id) {
-		return this.service.delete(id);
+	@DeleteMapping("/delete/{name}")
+	public boolean delete(@PathVariable String name) {
+		return this.service.delete(name);
 	}
 
 }

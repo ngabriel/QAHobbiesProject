@@ -1,57 +1,73 @@
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="recipe.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
 </head>
 
 <body>
 
+    <div class = container>
+          <H1> Welcome to the Cocktail Maker</H1>
+    <div class = "row">
+      
+    <div class = "col">
+    <div id="RecCreate">
+            
+        <p> To create a coktail, first check we have all your required ingredients in stock.<p>
+    <P>If you're ingredient is not in stock, please add it first</P>
+    <button type="button" id="readIngButton">Check Stock</button>
     
-    <div id="RecCreate">    
-        <H3> Create a Recipe</H3>
-    <P>Enter Recipe name</P>
-    <input id="recIn" type="text">
-    <P>Enter Recipe method</P>
-    <input id="methIn" type="text">
-    
-    <br/>
-    <button type="button" id="createRecButton">CREATE</button> 
-   
-   
-    <br/>
-
-    <div id = "createRecipe"></div>
-   
-   
-    <br/>
-</div>
-
     <div id="IngCreate">
-    <H3> Add Ingredients</H3>
-    <P>Enter Ingredient name</P>
-    <input id="ingIn" type="text">
-    <button type="button" id="createIngButton">ADD</button> 
-    <pre id = "createIngredient"></pre>
-    <br/>
+   
+        <button type="button" id="createIngButton">Add Ingredient</button> 
+    </div>
+    <p>Next name your cokctail and enter the method used to create it, Built, Shaken or Stirred? Then enter each ID number for the ingredients seperated by a comma ','</p>
+    <p>Cocktail name</p>
+    <input id="recIn"placeholder="recIn" type="text" >
+    <P>Cocktail method</P>
+    <input id="methIn" placeholder="methIn"type="text">
+    <P>Cocktail ingredients </P>
+    <input id="IDIn" placeholder="IDIn"type="text">
+    
 </div>
 
+   
+    
+<button type="button" id="createRecButton">CREATE</button> 
+<br/>
+<div id = "createRecipe"></div>
+</div>
+
+<div class= "col">
     <P>View All Recipes</P>
     <button type="button" id="readRecButton">VIEW ALL RECIPES</button>
     <pre id="readRecOutput"></pre>
+    <pre id ='readIngOutput'></pre>
     
-    <P>View All Ingredients</P>
+ 
 
-    <button type="button" id="readIngButton">VIEW ALL RECIPES</button>
-    <pre id="readIngOutput"></pre>
-    
+    <pre id = "createIngredient"></pre>
 
+    <input id="recDel"placeholder="recDel" type="text">
+    <button type="button" id="deleteRecButton">Delete Recipe</button> 
+<br/>
+<div id = "DeleteRecipeOut"></div>
 
+<p> Update Recipe name </p>
+<input id= "oldName" type="text" placeholder = "Type in the Ingredient name you would like to change">
 
+<input id= "newName" type="text" placeholder = "Type in the new Ingredient name">
+<button type="button" id="updateIngButton">Update Ingredient</button> 
+</div>
+</div>
 
-    <pre id = "output"></pre>
-
-    <div id = "bigOutput"></div>
-    
+</div>
+<div class="w-100"></div>
+</div>
 
     <script src="recipe.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
 </body>
 

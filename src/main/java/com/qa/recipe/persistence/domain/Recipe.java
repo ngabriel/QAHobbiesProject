@@ -2,10 +2,13 @@ package com.qa.recipe.persistence.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -22,11 +25,12 @@ public class Recipe {
 	@Size(min = 0, max = 80)
 	private String name;
 	
-	@Column(name = "recipe_method", unique = true)
+	@Column(name = "recipe_method")
 	@NotNull
 	private String method;
 	
-	@ManyToMany(mappedBy = "recipes")
+	@ManyToMany
+	@JoinTable(name = "recipe_ingredient", joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
 	private List<Ingredient> ingredient;
 	
 	
